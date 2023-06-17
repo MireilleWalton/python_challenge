@@ -14,12 +14,12 @@ with open(budget_path) as budget_file:
     for data_row in budget_reader:
         date.append(data_row [0])
         amount.append(float(data_row[1]))
-    print (date)
+    #print (date)
 
 #how many months?
 unique_dates = set (date)
 total_dates = len(unique_dates)
-print (total_dates)
+#print (total_dates)
 
 #sum total amount 
 
@@ -30,17 +30,27 @@ print (Total_amount)
 
 Ttl_chg_amnt = []
 init_amnt = amount[0]
-chg_count = 0
-max_inc = 0
-max_dec = 0
+Sum_Ttl_chg_amnt = 0
+init_amnt = amount[0]
+Ttl_chg_count = enumerate(Ttl_chg_amnt)
 
-for amnt in amount[1:]: #remember we have a headerow at index row 0 so start is from index row 1)
+for amnt in amount[1:]:
     chg_amnt = amnt - init_amnt
-    Ttl_chg_amnt.append(chg_amnt)
-    chg_count += chg_amnt
-    init_amt = chg_amnt
+    Sum_Ttl_chg_amnt += chg_amnt
+    init_amnt = amnt
 
+Avg_chg_amount = Sum_Ttl_chg_amnt / (total_dates - 1)
+    
+print (Avg_chg_amount)
 
+#for avg, amnt in enumerate (Ttl_chg_amnt):
+    
+    #Avg_change = Sum_Ttl_chg_amnt / avg
+    #print (Avg_change)
+
+#ok now for the second loop
+
+print("Sum of Total Change Amount:", Sum_Ttl_chg_amnt)
 #print("Financial Analysis")
 #print("___________________")
 
