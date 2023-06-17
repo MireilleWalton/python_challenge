@@ -9,6 +9,11 @@ References:
 Python references
 
 
+Python references
+
+
+Aaron Christiansen, 12 April 2016; StackOverflow,  Directing print output to a .txt file, (https://stackoverflow.com/questions/36571560/directing-print-output-to-a-txt-file), accessed 17 June 2023
+
 Python Lab, 12 November 2022, How to format number as currency in Python, (https://www.google.com/search?rlz=1C5CHFA_enAU992AU992&sxsrf=APwXEdcID7y8dUDIhTlkC5KrSh-1GfX8ag:1686990618273&q=python+how+to+set+currency+format&tbm=vid&sa=X&ved=2ahUKEwiok6rk8cn_AhUZnFYBHU3vC6MQ0pQJegQICRAB&biw=1724&bih=924&dpr=1#fpstate=ive&vld=cid:18e8b49c,vid:qovt5aa7vFg), accessed 17 June 2023
 
 elPastor, 12 March 2017 and S.Lott 26 November 2006 edited by Taylor D Edmonton 7 November 2021, StackOverflow, Currency formatting in Python, (https://stackoverflow.com/questions/320929/currency-formatting-in-python), accessed 17 June 2023
@@ -33,11 +38,8 @@ Python.Org, The Python Tutorial, 5 Data Structures, 5.4 Sets https://docs.python
 
 Unknown, Unknown - Python Program to Calculator Profit or Loss, https://www.tutorialgateway.org/python-program-to-calculate-profit-or-loss/, accessed 17 June 2023
 
-Programming with Mosh - How to use lists in Python, (https://www.youtube.com/watch?v=9OeznAkyQz4), accessed 17 June 2023
+Programming with Mosh, 6 November 2016, How to use lists in Python, (https://www.youtube.com/watch?v=9OeznAkyQz4), accessed 17 June 2023
 
-Programming with Mosh - How to Loop over Lists in Python, (https://www.youtube.com/watch?v=9ueMumuFv6g), accessed 17 June 2023
+Programming with Mosh, 6 November 2018 - How to Loop over Lists in Python, (https://www.youtube.com/watch?v=9ueMumuFv6g), accessed 17 June 2023
 
-Programming with Mosh - Python For Loops - Python Tutorial for Absolute Beginners (https://www.youtube.com/watch?v=94UHCEmprCY), accessed 17 June 2023
-
-
-Pieters, M, 2015; How to skip the headers when processing a csv file using Python?,(https://stackoverflow.com/questions/14257373/how-to-skip-the-headers-when-processing-a-csv-file-using-python/14257599#14257599), accessed 17 June 2023
+Programming with Mosh, 6 November 2018 - Python For Loops - Python Tutorial for Absolute Beginners (https://www.youtube.com/watch?v=94UHCEmprCY), accessed 17 June 2023
