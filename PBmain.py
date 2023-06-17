@@ -19,7 +19,7 @@ with open(budget_path) as budget_file:
 #how many months?
 unique_dates = set (date)
 total_dates = len(unique_dates)
-#print (total_dates)
+print (total_dates)
 
 #sum total amount 
 
@@ -39,18 +39,17 @@ for amnt in amount[1:]:
     Sum_Ttl_chg_amnt += chg_amnt
     init_amnt = amnt
 
-Avg_chg_amount = Sum_Ttl_chg_amnt / (total_dates - 1)
-    
+Avg_chg_amount = Sum_Ttl_chg_amnt / (total_dates - 1)    
 print (Avg_chg_amount)
 
-#for avg, amnt in enumerate (Ttl_chg_amnt):
-    
-    #Avg_change = Sum_Ttl_chg_amnt / avg
-    #print (Avg_change)
+#find greatest inrease and decrease
 
-#ok now for the second loop
+max_date = max(date)
+max_date_index = date.index(max_date)
 
-print("Sum of Total Change Amount:", Sum_Ttl_chg_amnt)
+print (max_date)
+print (max_date_index)
+
 #print("Financial Analysis")
 #print("___________________")
 
