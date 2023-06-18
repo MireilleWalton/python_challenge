@@ -9,7 +9,7 @@ locale.setlocale(locale.LC_ALL, 'en_AU')
 election_path = os.path.join('PyPoll','Resources', 'election_data.csv')
 
 vote = []
-candidate = []
+candidates = []
 
 with open(election_path) as election_file:
     election_reader = csv.reader(election_file, delimiter = ",")
@@ -18,19 +18,37 @@ with open(election_path) as election_file:
     #print(f"election Header: {election_data}")  #print election header
     for data_row in election_reader:
         vote.append(data_row [0])
-        candidate.append(str(data_row[2]))
+        candidates.append(str(data_row[2]))
     #print (vote)
 
 #how many votes?
 nmbr_votes = set (vote)
 votes = len(nmbr_votes) 
 
-#def print_candidate_profile (election_results):
+#count candidate votes
+candidate_votes = [candidates.count(name) for name in candidates] 
+print (candidate_votes)
 
-#how many votes per candidate?
-no_cndt_votes = set (candidate)
-cndt_votes = len(no_cndt_votes) 
-print (candidate + int(cndt_votes))
+#candidate percentage of votes
+percentage_votes = (candidate_votes/votes)*100
+
+#need individudal candidante names
+candidate_name = enumerate(candidates)
+# I think i need a dictionary
+
+Profile = {"Name":candidate_name, "vote_tally":candidate_votes}
+
+# Profile = {"name":candidates, "vote tally":candidate_votes}
+
+# print (Profile["name"])
+
+
+#print (candidate_votes)
+
+# #how many votes per candidate?
+# no_cndt_votes = set (candidate)
+# cndt_votes = len(no_cndt_votes) 
+# print (candidate + int(cndt_votes))
 
 #sum total candidate 
 
