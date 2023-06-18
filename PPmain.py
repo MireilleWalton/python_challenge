@@ -2,11 +2,9 @@ import os
 import csv
 import locale
 
-locale.setlocale(locale.LC_ALL, 'en_AU')
+locale.setlocale(locale.LC_ALL, 'en_AU') # code ref: elPastor, 12 March 2017 and S.Lott 26 November 2006 
 
-#   import data file & establish lists
-
-election_path = os.path.join('PyPoll','Resources', 'election_data.csv')
+election_path = os.path.join('PyPoll', 'Resources', 'election_data.csv')
 
 vote = []
 candidates = []
@@ -19,30 +17,31 @@ with open(election_path) as election_file:
     for data_row in election_reader:
         vote.append(data_row [0])
         candidates.append(str(data_row[2]))
-    #print (vote)
+    #print (date)
 
-#   how many votes?
-    nmbr_votes = (vote.count)
-    votes = set(nmbr_votes) 
+#how many votes? 
+vote = set (vote)
+total_votes = len(vote) # code ref Ulhaq M, 2022 & Bastin N 2010, StackOverflow
+print (total_votes)
 
-#   count candidate votes
-    candidate_votes = [candidates.count(name) for name in candidates] 
+#candidate vote count - i want to store it in a dictionary
+candidate_pctg = {}
+for candidate in candidates:
+    if candidate in candidate_pctg:
+        (candidate_pctg[candidate]/total_votes)*100
+    else:
+        percentage = 0
 
-#   candidate percentage of votes
-    percentage_votes = [(candidate_votes/votes)*100 for votes in candidate_votes]
+#candidate vote % - i want to store it in a dictionary
+candidate_votes = {}
+for candidate in candidates:
+    if candidate in candidate_votes:
+        candidate_votes[candidate] +=1
+    else:
+        candidate_votes[candidate] = 1
 
-#   need individudal candidante names in a list
-    candidate_name = [name for name in enumerate(candidates)]
-
-#   I think i need a dictionary
-    Profile = {"Name":candidate_name, "%_votes" : percentage_votes, "No. votes" : candidate_votes}
-
-#   identify the winner
-
-    most_votes = max(Profile, key=Profile['No. votes'])
-    print(most_votes)
-
-#def Profile (profile = {"Name":candidate_name, "vote_tally":candidate_votes, "%_votes":percentage_votes})
+print (candidate_pctg)
+print(candidate_votes)
 
 
 # #     print("Election Results")
