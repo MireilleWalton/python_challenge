@@ -24,14 +24,6 @@ vote = set (vote)
 total_votes = len(vote) # code ref Ulhaq M, 2022 & Bastin N 2010, StackOverflow
 print (total_votes)
 
-#candidate vote count - i want to store it in a dictionary
-candidate_pctg = {}
-for candidate in candidates:
-    if candidate in candidate_pctg:
-        (candidate_pctg[candidate]/total_votes)*100
-    else:
-        percentage = 0
-
 #candidate vote % - i want to store it in a dictionary
 candidate_votes = {}
 for candidate in candidates:
@@ -40,21 +32,36 @@ for candidate in candidates:
     else:
         candidate_votes[candidate] = 1
 
-print (candidate_pctg)
-print(candidate_votes)
+#candidate vote count - i want to store it in a dictionary
+candidate_pctg = {}
+for candidate in candidates:
+    if candidate in candidate_votes:
+        percentage = (candidate_votes[candidate]/total_votes)*100
+        candidate_pctg[candidate] = percentage
+
+# find the winner
+
+winner = max(candidate_votes.values())
+
+#Print election analysis
+
+print("Election Results")
+print("------------------------")
+print(f"Total votes:  {total_votes}")
+print("------------------------")
+print(f"{candidate[0]}, {:.2f} .format{candidate_pctg[percentage]} {candidate_votes[candidate_votes]}}")
+print(f"{candidate[0]}, {:.2f} .format{candidate_pctg[percentage]} {candidate_votes[candidate_votes]}}")
+print(f"{candidate[0]}, {:.2f} .format{candidate_pctg[percentage]} {candidate_votes[candidate_votes]}}")
+print("------------------------")
+print(f"Winner:  {winner}")
+print("------------------------")
 
 
-# #     print("Election Results")
-# #     print("------------------------")
-# #     print(f"Total votes:  {Ttl_votes}")
-# #     print("------------------------")
-# #     print(f"Sick Time Usage Rate: {str(sick_hours_rate)}")
-# #     print(f"Voting Time Usage Rate: {str(voting_time_usage_rate)}")
-# #     print(f"Overall Time Off Usage: {str(overall_usage_rate)}")
-# #     print(f"{message}")
-# #     print("------------------------")
-# #     print(f"Winner:)
-# #     print("------------------------")
+# print (f"Total months:  {total_dates}")
+# print ("Total: ${:.0f}" .format(Total_amount))
+# print ("Average change:  ${:.2f}" .format(Avg_chg_amount))
+# print ("Greatest increase in profits:  " + (max_inc_date) + "  (${:.0f})" .format(max_inc))
+# print ("Greatest decrease in profits:  " + (min_inc_date) + "  (${:.0f})" .format(min_inc))
 
 # # Read in the CSV file
 # with open(election_csv, 'r') as csvfile:
