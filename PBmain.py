@@ -2,63 +2,44 @@ import os
 import csv
 import locale
 
-locale.setlocale(locale.LC_ALL, 'en_AU')
+locale.setlocale(locale.LC_ALL, 'en_AU')    #  import local currency, elPastor, 12 March 2017 and S.Lott 26 November 2006 
 
-#import data file & establish lists
+budget_path = os.path.join('Resources', 'budget_data.csv')   # import data file 
 
-budget_path = os.path.join('PyBank','Resources', 'budget_data.csv')
-
-date = []
-amount = []
+date = []           #   establish list to store dates
+amount = []         #   establish list to stora amounts
+Ttl_chg_amnt = []   #   establish to store rate of change
 
 with open(budget_path) as budget_file:
     budget_reader = csv.reader(budget_file, delimiter = ",")
     print (budget_reader)
-    budget_data = next(budget_reader)
-    print(f"Budget Header: {budget_data}")
+    budget_data = next(budget_reader)       #   store budget header
     for data_row in budget_reader:
-        date.append(data_row [0])
-        amount.append(float(data_row[1]))
-    #print (date)
+        date.append(data_row [0])           #   append date data to date list
+        amount.append(float(data_row[1]))   #   append amount data to date list
+ 
 
-#how many months?
-unique_dates = set (date)
-total_dates = len(unique_dates) # code ref Ulhaq M, 2022 & Bastin N 2010, StackOverflow
-print (total_dates)
-
-#sum total amount 
-
-Total_amount = sum(amount)
-print (Total_amount)
-
-#here we go looping again - remember corrections from VBA_challenge!!!
-
-Ttl_chg_amnt = [] 
+Total_dates = len(date)     #   count how many months. Code ref Ulhaq M, 2022 & Bastin N 2010, StackOverflow
+Total_amount = sum(amount)  #   calculate total amount 
+Sum_Ttl_chg_amnt = 0        #   calculate total amount 
 init_amnt = amount[0]
-Sum_Ttl_chg_amnt = 0
-init_amnt = amount[0]
-Ttl_chg_count = enumerate(Ttl_chg_amnt) #counts number of changes to be used in average calculation
-
 for amnt in amount[1:]:
     chg_amnt = amnt - init_amnt
     Sum_Ttl_chg_amnt += chg_amnt
     init_amnt = amnt
 
-Avg_chg_amount = Sum_Ttl_chg_amnt / (total_dates - 1)    
-print (Avg_chg_amount)
+Avg_chg_amount = Sum_Ttl_chg_amnt / (Total_dates - 1)    #   calculate the average amount
 
-#find greatest inrease and decrease - remember VBA code and get it right! Love the simplified '+=' of python
-
-Sum_Ttl_chg_amount = 0
-init_amount = [0]
-max_inc = 0
-max_inc_date = ""
+Sum_Ttl_chg_amount = 0      #   find greatest inrease and decrease - remember VBA code and get it right! Love the simplified '+=' of python
+init_amount = [0]           
+max_inc = 0                 
+max_inc_date = ""           #   establish respository to store max increase date
 min_inc = 0
-min_inc_date = ""
+min_inc_date = ""           #   establish respository to store min increase date
 
 for i in range(1, len(amount)):
     chg_amnt = amount[i] - init_amnt
-    Sum_Ttl_chg_amnt += chg_amnt #ref; Programming with Mosh
+    Sum_Ttl_chg_amnt += chg_amnt        #  ref; Programming with Mosh
     init_amnt = amount[i]
     if chg_amnt > max_inc:
         max_inc = chg_amnt
@@ -67,26 +48,27 @@ for i in range(1, len(amount)):
         min_inc = chg_amnt
         min_inc_date= date[i]
 
-#print to terminal.  currency code ref: PythonLab 2022 
+# #   print to terminal.  currency code ref: PythonLab 2022 
 
 print ("Financial Analysis")
 print("-------------------------------------")
-print (f"Total months:  {total_dates}")
+print (f"Total months:  {Total_dates}")
 print ("Total: ${:.0f}" .format(Total_amount))
 print ("Average change:  ${:.2f}" .format(Avg_chg_amount))
 print ("Greatest increase in profits:  " + (max_inc_date) + "  (${:.0f})" .format(max_inc))
 print ("Greatest decrease in profits:  " + (min_inc_date) + "  (${:.0f})" .format(min_inc))
+print("-------------------------------------")
 
-#export results to .txt file.  code ref: Christiansen, A, 2016, StackOverflow
+#   export results to .txt file.  code ref: Christiansen, A, 2016, StackOverflow
 
-with open(os.path.join('python_challenge', 'PyBank', 'Resources', 'PBmain_Print_Result.txt', 'w')) as f:
+with open(os.path.join('PyBank_main_print_results.txt'), 'w') as f:
 
     print ("Financial Analysis", file=f)
     print("-------------------------------------", file=f)
-    print (f"Total months:  {total_dates}", file=f)
+    print (f"Total months:  {Total_dates}", file=f)
     print ("Total: ${:.0f}" .format(Total_amount), file=f)
     print ("Average change:  ${:.2f}" .format(Avg_chg_amount), file=f)
     print ("Greatest increase in profits:  " + (max_inc_date) + "  (${:.0f})" .format(max_inc), file=f)
     print ("Greatest decrease in profits:  " + (min_inc_date) + "  (${:.0f})" .format(min_inc), file=f)
-
+    print("-------------------------------------", file=f)
 
