@@ -4,8 +4,17 @@ Student: Mireille Walton,
 Email: mmj649@gmail.com 
 
 Files included:
+- README.md
+**PyBank**
+- PBmain.py
+- PyBank_main_print_results.text
+**PyPoll**
+- PPmain.py
+- PyPoll_main_print_results.text
 
 References: 
+
+“Print on console and text file simultaneously python”, https://stackoverflow.com/questions/26796592/print-on-console-and-text-file-simultaneously-python, accessed 21 June 2023
 
 Leodanis Pozo Ramos, 19 December 2022, “Python’s “in” and “not in” operators: Check for Membership”, https://realpython.com/python-in-operator/, accessed 20 June 2023
 
@@ -58,3 +67,4 @@ Programming with Mosh, 6 November 2016, “How to use lists in Python”, (https
 Programming with Mosh, 6 November 2018 - “How to Loop over Lists in Python”, (https://www.youtube.com/watch?v=9ueMumuFv6g), accessed 17 June 2023
 
 Programming with Mosh, 6 November 2018 - “Python For Loops - Python Tutorial for Absolute Beginners” (https://www.youtube.com/watch?v=94UHCEmprCY), accessed 17 June 2023
+
